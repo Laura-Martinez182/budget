@@ -5,10 +5,12 @@ public class main {
 	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		ask_for_product_name(sc, general_amount);
-		utilization (sc, general_amount);
+		int result = main.ask_for_general_amount(sc);
+		ask_for_product_name(sc, result);
+		utilization (sc, result);
 		System.out.println("El precio total a pagar en HomeCenter es:" + budget.total_homecenter());
-		
+		System.out.println("El precio total a pagar en la Ferreteria del centro es:" + budget.total_store_center());
+		System.out.println("El precio total a pagar en la Ferreteria del barrio es:" + budget.total_store_of_neighborhood());
 	}
 
 		public static int ask_for_general_amount(Scanner sc) {
@@ -17,8 +19,6 @@ public class main {
 		sc.nextLine();
 		return num_products;
 	}
-		
-	
 		
 		public static String[] ask_for_product_name (Scanner sc, int general_amount) {
 		String[] product_Name = new String [general_amount];
@@ -61,26 +61,26 @@ public class main {
 			  return price_hc;
 		}
 			
-		public static double[] store_center (Scanner sc, int general_amount) {
-			double[] price_storecenter = new double[general_amount];
+		public static double[] price_store_center (Scanner sc, int general_amount) {
+			double[] price_scenter = new double[general_amount];
 			for (int i = 0; i < general_amount; i++) {
-			System.out.println ("Ingrese el precio del material " + (i+1) + "para la ferretería del centro:");		
-			price_storecenter[i] = sc.nextDouble();
+			System.out.println ("Ingrese el precio del material " + (i+1) + "para la Ferretería del centro:");		
+			price_scenter[i] = sc.nextDouble();
 			sc.nextDouble();
 				
 			}
-			  return price_storecenter;
+			  return price_scenter;
 		}
 			
-		public static double[] store_of_neighborhood (Scanner sc, int general_amount) {
-			double[] price_neighborhood = new double[general_amount];
+		public static double[] price_store_of_neighborhood (Scanner sc, int general_amount) {
+			double[] price_sn = new double[general_amount];
 			for (int i = 0; i < general_amount; i++) {
 			System.out.println ("Ingrese el precio del material " + (i+1) + "para Ferreteria del barrio:");		
-			price_neighborhood[i] = sc.nextDouble();
+			price_sn[i] = sc.nextDouble();
 			sc.nextDouble();
 				
 			}
-			  return price_neighborhood;
+			  return price_sn;
 		}
 }
 		
