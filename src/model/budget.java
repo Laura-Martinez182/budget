@@ -2,50 +2,65 @@ package model;
 import ui.*;
 import java.util.Scanner;
 public class budget {
-	private final static double BLACK_WORK = 1300000;
-	private final static double WHITE_WORK = 2600000;
+	
+	private final static double ROUGH_CONSTRUCTION = 1300000;
+	private final static double FINAL_WORK = 2600000;
 	private final static double PAINT = 980000;
 	
+	private final static string obraNegra = "";
+	private final static string obraBlanca = "";
+	private final static string pintura = "";
 	
-		public static double total_homecenter() {
-			Scanner sc = new Scanner(System.in);
-			int result = main.ask_for_general_amount(sc);
-			double[] each_product_amount= main.ask_for_product_amount(sc, result);
-			double[] price_hc =	main.price_homecenter(sc, result);
-			double total_hc = 0;
+	
+		public static double total_store(homecenter_prices, centerstore_prices, neighborhood_prices, work) {
+			Scanner ab = new Scanner(System.in);
+			
+			double delivery = 0;
+			double[] total_price =	main.price_for_each_place(ab, result);
+			double total_price = 0;
 			for (int i = 0; i < result; i++) {
-			total_hc += (each_product_amount[i]*price_hc[i]);
+			total_price += (each_amount[i]*total_price[i]);
 		}
-			total_hc += (PAINT + WHITE_WORK + BLACK_WORK);
-			return total_hc;
+		return total_price;		
 }	
-	
-		public static double total_store_center() {
-			Scanner sc = new Scanner(System.in);
-			int result = main.ask_for_general_amount(sc);
-			double[] each_product_amount= main.ask_for_product_amount(sc, result);
-			double[] price_scenter = main.price_store_center(sc, result);
-			double total_scenter = 0;
-			for (int i = 0; i < result; i++) {
-			total_scenter += (each_product_amount[i]*price_scenter[i]);
-		}
-			total_scenter += (PAINT + WHITE_WORK + BLACK_WORK);
-			return total_scenter;
-}	
-		
-		public static double total_store_of_neighborhood() {
-			Scanner sc = new Scanner(System.in);
-			int result = main.ask_for_general_amount(sc);
-			double[] each_product_amount= main.ask_for_product_amount(sc, result);
-			double[] price_sn =	main.price_store_of_neighborhood (sc, result);
-			double total_sn = 0;
-			for (int i = 0; i < result; i++) {
-			total_sn += (each_product_amount[i]*price_sn[i]);
-		}
-			total_sn += (PAINT + WHITE_WORK + BLACK_WORK);
-			return total_sn;
-	}
-	
+
+	if(name){
+            if(name.equals("homecenter")){
+                if(total_price<80000){
+                    delivery=120000;
+                }
+                if(total_price<300000){
+                    delivery=28000;
+                }
+                if(total_price>=300000){
+                    delivery=120000;
+                }
+            if(name.equals("ferreteria del centro")){
+                if(total_price<80000){
+                    delivery=50000;
+                }
+                if(total_price<300000){
+                    delivery=0;
+                }
+                if(total_price>=300000){
+                    delivery=0;
+                }
+            if(name.equals("ferreteria del barrio")){
+                if(total_price<80000){
+                    delivery=120000;
+                }
+                if(total_price<300000){
+                    delivery=55000;
+                }
+                if(total_price>=300000){
+                    delivery=0;
+                }
+			}
+          }
+        }
+		return delivery;
+      }
+     
 	
 }
 	
