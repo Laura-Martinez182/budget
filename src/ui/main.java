@@ -7,6 +7,7 @@ public class main {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
+		budget budget = new budget();
 		int result = ask_for_general_amount(sc);
 		String[] name = ask_for_product_name(sc, result);
 		int[] each_amount = ask_for_product_amount(sc, result);
@@ -21,9 +22,9 @@ public class main {
 		System.out.println ("El precio total para la ferreteria del centro es: " + budget.total_store(centerstore_prices, each_amount, result, location));
 		System.out.println ("El precio total para la ferreteria del barrio es: " + budget.total_store(neighborhood_prices, each_amount, result, location));
 		
-		System.out.println ("Productos para obra negra: " + budget.utilizationsArrays(work, "obra negra", name);
-		System.out.println ("Productos para obra blanca: " + budget.utilizationsArrays(work, "obra blanca", name);
-		System.out.println ("Productos para pintura: " + budget.utilizationsArrays(work, "pintura", name);
+		System.out.println ("Productos para obra negra: " + budget.utilizationsArrays(work, "obra negra", name));
+		System.out.println ("Productos para obra blanca: " + budget.utilizationsArrays(work, "obra blanca", name));
+		System.out.println ("Productos para pintura: " + budget.utilizationsArrays(work, "pintura", name));
 		
 		
 	}
@@ -68,7 +69,7 @@ public class main {
 			
 		public static int[] price_for_each_place (Scanner sc, int general_amount, String name) {
 			int[] price = new int[general_amount];
-			System.out.println ("Ingrese el nombre del estableciemiento" + name); 
+			System.out.println ("Ingrese el precio para: " + name); 
 			for (int i = 0; i < general_amount; i++) {
 			System.out.println ("Ingrese el precio del material " + (i+1));		
 			price[i] = sc.nextInt();
